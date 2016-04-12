@@ -35,7 +35,6 @@ buildscript {
     }
 }
 
-apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.library'
 
 apply from: 'gradle/eclipse.gradle'
