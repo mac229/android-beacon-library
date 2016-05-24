@@ -45,6 +45,8 @@ public class CycledLeScannerForLollipop extends CycledLeScanner {
                 catch (NullPointerException npe) {
                     // Necessary because of https://code.google.com/p/android/issues/detail?id=160503
                     LogManager.e(TAG, "Cannot stop scan.  Unexpected NPE.", npe);
+                } catch (IllegalStateException ise) {
+                    LogManager.w(TAG, "Cannot start scan.  BT Adapter is not turned on.", ise);
                 }
             }
         }
@@ -188,6 +190,8 @@ public class CycledLeScannerForLollipop extends CycledLeScanner {
                 catch (NullPointerException npe) {
                     // Necessary because of https://code.google.com/p/android/issues/detail?id=160503
                     LogManager.w(TAG, "Cannot start scan.  Unexpected NPE.", npe);
+                } catch (IllegalStateException ise) {
+                    LogManager.w(TAG, "Cannot start scan.  BT Adapter is not turned on.", ise);
                 }
             }
         }
