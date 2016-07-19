@@ -64,6 +64,8 @@ public abstract class CycledLeScanner {
         if (android.os.Build.VERSION.SDK_INT < 21) {
             LogManager.i(TAG, "This is not Android 5.0.  We are using old scanning APIs");
             useAndroidLScanner = false;
+        } else if (android.os.Build.VERSION.SDK_INT == 23 && Build.MANUFACTURER.toLowerCase().contains("htc")) {
+			useAndroidLScanner = false;    
         } else {
             if (BeaconManager.isAndroidLScanningDisabled()) {
                 LogManager.i(TAG, "This Android 5.0, but L scanning is disabled. We are using old scanning APIs");
